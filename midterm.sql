@@ -37,11 +37,19 @@ CREATE TABLE BorrowCardItem (
 Alter table borrowcarditem Drop column number_of_copies;
 
 
-\COPY borrower (borrower_id,name, address, telephone_number) FROM /Users/andrew_ta/Andrew-Code/CSDL-LAB/borrower.csv delimiter ',' null as 'null';
+\COPY borrower (borrower_id,name, address, telephone_number) FROM /Users/andrew_ta/Andrew-Code/DB-LAB/borrower.csv delimiter ',' null as 'null';
 
-\COPY borrowcard (card_id, borrower_id, borrow_date, expected_return_date, actual_return_date) FROM /Users/andrew_ta/Andrew-Code/CSDL-LAB/borrowcard.csv delimiter ',' null as 'null';
+\COPY book (book_id , title ,publisher ,published_year ,total_number_of_copies ,current_number_of_copies) FROM /Users/andrew_ta/Andrew-Code/DB-LAB/book.csv delimiter ',' null as 'null';
 
-\COPY borrowcarditem (card_id, book_id) FROM /Users/andrew_ta/Andrew-Code/CSDL-LAB/borrowcarditem.csv delimiter ',' null as 'null';
+
+book_id , title ,publisher ,published_year ,total_number_of_copies ,current_number_of_copies
+
+
+
+
+\COPY borrowcard (card_id, borrower_id, borrow_date, expected_return_date, actual_return_date) FROM /Users/andrew_ta/Andrew-Code/DB-LAB/borrowcard.csv delimiter ',' null as 'null';
+
+\COPY borrowcarditem (card_id, book_id) FROM /Users/andrew_ta/Andrew-Code/DB-LAB/borrowcarditem.csv delimiter ',' null as 'null';
 
 
 //Cau 2
