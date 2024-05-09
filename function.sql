@@ -82,3 +82,24 @@ EXCEPTION
         RETURN 'Error: ' || SQLERRM;
 END;
 $$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION return_book(
+    p_card_id INT,
+    p_book_id CHAR(10),
+    p_actual_return_date DATE
+) RETURNS TEXT AS $$
+BEGIN
+    UPDATE BorrowCard
+    SET actual_return_date = p_actual_return_date
+    WHERE card_id = p_card_id;
+
+    UPDATE library.Book
+    SET current_number_of_copies = current_number_of_copies + 1
+    WHERE book_id = p_book_id;
+
+    RETURN 'Book returned successfully';
+EXCEPTION
+    WHEN OTHERS THEN
+        RETURN 'Error: ' || SQLERRM;
+END;
+$$ LANGUAGE plpgsql;
