@@ -103,3 +103,10 @@ EXCEPTION
         RETURN 'Error: ' || SQLERRM;
 END;
 $$ LANGUAGE plpgsql;
+
+
+SELECT add_new_book('B001', 'The Great Gatsby', 'Scribner', 1925, 10);
+SELECT register_borrower('BR001', 'John Doe', '123 Main St', '555-123-4567');
+SELECT create_borrow_card(1, 'BR001', '2023-07-01', '2023-07-15');
+SELECT add_book_to_borrow_card(1, 'B001');
+SELECT return_book(1, 'B001', '2023-07-10');
