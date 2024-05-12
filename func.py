@@ -12,3 +12,14 @@ def add_new_book(book_id, title, publisher, published_year, total_copies):
     # execute_sql(sql, (book_id, title, publisher, published_year, total_copies, current_copies))
     
     return "Book added successfully"
+
+def register_borrower(borrower_id, name, address, telephone_number):
+    # SQL to insert new borrower
+    sql = """
+    INSERT INTO library.Borrower (borrower_id, name, address, telephone_number)
+    VALUES (%s, %s, %s, %s)
+    """
+    # Execute SQL
+    # execute_sql(sql, (borrower_id, name, address, telephone_number))
+    
+    return "Borrower registered successfully"
