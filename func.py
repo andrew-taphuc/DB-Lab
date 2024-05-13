@@ -23,3 +23,4 @@ def register_borrower(borrower_id, name, address, telephone_number):
     # execute_sql(sql, (borrower_id, name, address, telephone_number))
     
     return "Borrower registered successfully"
+
