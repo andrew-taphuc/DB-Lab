@@ -38,3 +38,23 @@ def add_book_to_borrow_card(card_id, book_id):
     
     # Placeholder return for this example
     return "Function executed"
+
+
+def return_book(card_id, book_id, actual_return_date):
+    # SQL to update borrow card
+    update_card_sql = """
+    UPDATE BorrowCard
+    SET actual_return_date = %s
+    WHERE card_id = %s
+    """
+    # execute_sql(update_card_sql, (actual_return_date, card_id))
+    
+    # SQL to update book copies
+    update_book_sql = """
+    UPDATE library.Book
+    SET current_number_of_copies = current_number_of_copies + 1
+    WHERE book_id = %s
+    """
+    # execute_sql(update_book_sql, (book_id,))
+    
+    return "Book returned successfully"
